@@ -1,11 +1,7 @@
-import './App.css';
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      task-board
-    </div>
-  );
+  return <div className="font-mono">task-board</div>;
 }
 
 export default App;
