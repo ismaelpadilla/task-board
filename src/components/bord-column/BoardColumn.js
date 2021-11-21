@@ -8,7 +8,7 @@ const BoardColumn = (props) => {
       <h3 className="text-lg font-sans font-bold text-center">{props.title}</h3>
       <Droppable droppableId={String(props.id)}>
         {(droppableProvided) => (
-          <div className="flex flex-col gap-4 py-3" {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>
+          <div className="flex flex-col h-full gap-4 py-3" {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>
             {props.tasks.map((task, i) =>
               <Draggable key={task.id} index={i} draggableId={String(task.id)}>
                 {(draggableProvided) => (
