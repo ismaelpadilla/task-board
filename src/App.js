@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import BoardColumn from "./components/bord-column/BoardColumn";
-import { DragDropContext } from "react-beautiful-dnd";
+import {DragDropContext} from "react-beautiful-dnd";
 import NewTask from './components/new-task/NewTask';
 
 import "./App.css";
 
 function App() {
   const initialBoard = [
-    {id: 1, title: "To do", tasks: [{id: 1, title: "Sample task", description: "We can drag this around!"},{id: 2, title: "Do stuff", description: "This is a task with a very long description. The text should be cut off at some point so that a sigle task doesn't take up the whole screen!"}]},
+    {id: 1, title: "To do", tasks: [{id: 1, title: "Sample task", description: "We can drag this around!"}, {id: 2, title: "Do stuff", description: "This is a task with a very long description. The text should be cut off at some point so that a sigle task doesn't take up the whole screen!"}]},
     {id: 2, title: "In Progress", tasks: []},
     {id: 3, title: "Done", tasks: [{id: 3, title: "Publish this website", description: "Publish using github pages"}]},
   ];
@@ -40,22 +40,22 @@ function App() {
   const onClickNewTask = () => {
     setShowModal(true);
   };
-  
+
   const onShowModal = (show) => {
     setShowModal(show);
   }
 
   const onNewTask = (taskTitle, taskDescription) => {
     const [oldFirstColumn, ...rest] = board;
-    const newFirstColumn = JSON.parse(JSON.stringify(oldFirstColumn)); 
+    const newFirstColumn = JSON.parse(JSON.stringify(oldFirstColumn));
     newFirstColumn.tasks.push({id: lastId + 1, title: taskTitle, description: taskDescription});
-    setLastId(lastId + 1 );
+    setLastId(lastId + 1);
     updateBoard([newFirstColumn, ...rest]);
   }
 
   return (
     <div>
-      { showModal ? <NewTask onNewTask={onNewTask} showModal={showModal} setShowModal={onShowModal}/> : null }
+      {showModal ? <NewTask onNewTask={onNewTask} showModal={showModal} setShowModal={onShowModal} /> : null}
       <div onClick={onClickNewTask}>Add new task</div>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <div className="grid grid-cols-3">

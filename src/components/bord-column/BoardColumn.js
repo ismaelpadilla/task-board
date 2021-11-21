@@ -1,5 +1,5 @@
 import Task from "../task/Task";
-import { Draggable, Droppable } from "react-beautiful-dnd";
+import {Draggable, Droppable} from "react-beautiful-dnd";
 
 
 const BoardColumn = (props) => {
@@ -12,11 +12,11 @@ const BoardColumn = (props) => {
             {props.tasks.map((task, i) =>
               <Draggable key={task.id} index={i} draggableId={String(task.id)}>
                 {(draggableProvided) => (
-                  <Task id={task.id} title={task.title} description={task.description} ref={draggableProvided.innerRef} {...draggableProvided.draggableProps} {...draggableProvided.dragHandleProps}/>
+                  <Task id={task.id} title={task.title} description={task.description} ref={draggableProvided.innerRef} {...draggableProvided.draggableProps} {...draggableProvided.dragHandleProps} />
                 )}
               </Draggable>
             )}
-          {droppableProvided.placeholder}
+            {droppableProvided.placeholder}
           </div>
         )}
       </Droppable>
