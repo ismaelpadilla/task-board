@@ -54,11 +54,14 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="w-4/5 mx-auto">
       {showModal ? <NewTask onNewTask={onNewTask} showModal={showModal} setShowModal={onShowModal} /> : null}
-      <div onClick={onClickNewTask}>Add new task</div>
+      <div onClick={onClickNewTask} className="my-4 cursor-pointer">
+        <div className="rounded bg-green-500 text-white font-bold inline px-1 align-center align-middle">+</div>
+        <span className="pl-1 align-middle">Add new task</span>
+      </div>
       <DragDropContext onDragEnd={handleOnDragEnd}>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-x-10 mt-5">
           {board.map((col) => <BoardColumn id={col.id} key={col.id} title={col.title} tasks={col.tasks} />)}
         </div>
       </DragDropContext>
