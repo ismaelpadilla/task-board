@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import BoardColumn from "./components/bord-column/BoardColumn";
+import BoardColumn from "./components/board-column/BoardColumn";
 import {DragDropContext} from "react-beautiful-dnd";
 import NewTask from './components/new-task/NewTask';
 import DarkModeToggle from './components/dark-mode-toggle/DarkModeToggle'; 
