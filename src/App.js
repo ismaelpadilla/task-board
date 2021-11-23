@@ -2,6 +2,7 @@ import {useState} from 'react';
 import BoardColumn from "./components/bord-column/BoardColumn";
 import {DragDropContext} from "react-beautiful-dnd";
 import NewTask from './components/new-task/NewTask';
+import DarkModeToggle from './components/dark-mode-toggle/DarkModeToggle'; 
 
 import "./App.css";
 
@@ -15,6 +16,7 @@ function App() {
   const [board, updateBoard] = useState(initialBoard);
   const [showModal, setShowModal] = useState(false);
   const [lastId, setLastId] = useState(3);
+  const [darkModeEnabled, setDarkMode] = useState(false);
 
   const handleOnDragEnd = (result) => {
     const taskId = result.draggableId;
@@ -53,12 +55,23 @@ function App() {
     updateBoard([newFirstColumn, ...rest]);
   }
 
+  const toggleDarkMode = () => {
+    if (!darkModeEnabled)
+      document.documentElement.classList.add('dark')
+    else
+      document.documentElement.classList.remove('dark')
+    setDarkMode(!darkModeEnabled);
+  }
+
   return (
     <div className="w-4/5 mx-auto">
       {showModal ? <NewTask onNewTask={onNewTask} showModal={showModal} setShowModal={onShowModal} /> : null}
-      <div onClick={onClickNewTask} className="my-4 cursor-pointer">
-        <div className="rounded bg-green-500 text-white font-bold inline px-1 align-center align-middle">+</div>
-        <span className="pl-1 align-middle">Add new task</span>
+      <div className="flex justify-between my-4">
+        <div onClick={onClickNewTask} className="cursor-pointer">
+          <div className="rounded bg-green-500 text-white font-bold inline px-1 align-center align-middle">+</div>
+          <span className="pl-1 align-middle dark:text-gray-100">Add new task</span>
+        </div>
+        <DarkModeToggle toggleDarkMode={toggleDarkMode} />
       </div>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <div className="grid grid-cols-3 gap-x-10 mt-5">

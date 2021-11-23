@@ -4,8 +4,8 @@ import {Draggable, Droppable} from "react-beautiful-dnd";
 
 const BoardColumn = (props) => {
   return (
-    <div className="bg-gray-100 rounded-md">
-      <h3 className="text-lg mt-2 font-sans font-bold text-center">{props.title}</h3>
+    <div className="bg-gray-100 dark:bg-gray-700 rounded-md">
+      <h3 className="dark:text-gray-200 text-lg mt-2 font-sans font-bold text-center">{props.title}</h3>
       <Droppable droppableId={String(props.id)}>
         {(droppableProvided) => (
           <div className="flex flex-col h-full gap-4 py-3" {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>

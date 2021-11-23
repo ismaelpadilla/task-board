@@ -33,10 +33,10 @@ const NewTask = (props) => {
         <div onClick={cancelTask} className="block inset-0 fixed z-40 opacity-50 bg-black h-screen w-screen"></div>
         <div className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute w-auto z-50 w-2/5 max-w-7xl">
           {/*content*/}
-          <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+          <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:bg-gray-800 outline-none focus:outline-none">
             {/*header*/}
             <div className="flex items-start justify-between p-5 border-b border-solid">
-              <h3 className="text-xl font-semibold">
+              <h3 className="text-xl font-semibold dark:text-gray-100">
                 Add new task
               </h3>
               <button
@@ -52,13 +52,13 @@ const NewTask = (props) => {
             <div className="relative px-6 py-3 flex-auto">
               <form className="flex flex-col">
                 <div className="mb-3">
-                  <label htmlFor="title" className="block uppercase text-blueGray-600 font-bold mb-2"> Title </label>
-                  <input value={taskTitle} onChange={onTitleChange} type="text" id="title" className="form-input border-0 px-3 py-3 bg-white rounded text-sm shadow w-full ease-linear transition-all duration-150" placeholder="Task title" />
+                  <label htmlFor="title" className="block uppercase dark:text-gray-100 text-blueGray-600 font-bold mb-2"> Title </label>
+                  <input value={taskTitle} onChange={onTitleChange} type="text" id="title" className="form-input border-0 px-3 py-3 bg-white dark:bg-gray-900 dark:placeholder-gray-400 dark:text-gray-100 rounded text-sm shadow w-full ease-linear transition-all duration-150" placeholder="Task title" />
                 </div>
 
                 <div>
-                  <label htmlFor="description" className="block uppercase text-blueGray-600 font-bold mb-2"> Description </label>
-                  <textarea value={taskDescription} onChange={onDescriptionChange} id="description" className="form-input border-0 px-3 py-3 bg-white rounded text-sm shadow w-full ease-linear transition-all duration-150" placeholder="Task description" />
+                  <label htmlFor="description" className="block uppercase text-blueGray-600 dark:text-gray-100 font-bold mb-2"> Description </label>
+                  <textarea value={taskDescription} onChange={onDescriptionChange} id="description" className="form-input border-0 px-3 py-3 bg-white dark:bg-gray-900 dark:placeholder-gray-400 dark:text-gray-100 drounded text-sm shadow w-full ease-linear transition-all duration-150" placeholder="Task description" />
                 </div>
               </form>
             </div>
