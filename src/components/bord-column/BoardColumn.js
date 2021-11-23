@@ -1,3 +1,4 @@
+import React from "react";
 import Task from "../task/Task";
 import {Draggable, Droppable} from "react-beautiful-dnd";
 

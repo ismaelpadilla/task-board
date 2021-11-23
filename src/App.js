@@ -1,10 +1,9 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import BoardColumn from "./components/bord-column/BoardColumn";
 import {DragDropContext} from "react-beautiful-dnd";
 import NewTask from './components/new-task/NewTask';
 import DarkModeToggle from './components/dark-mode-toggle/DarkModeToggle'; 
 
-import "./App.css";
 
 function App() {
   const initialBoard = [
